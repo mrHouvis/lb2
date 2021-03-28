@@ -67,15 +67,15 @@ public class AlbumObject {
     @Override
     public String toString() {
         StringBuilder str = new StringBuilder("Album{" + "\n\tname=\"" + name + "\"" + ";\n\tartist=\"" + artist + "\";\n\t");
-        str.append(imageToString(image)).append(";\n\t").append(tagsObject).append(";\n\t");
+        str.append("images{").append(imageToString()).append("\n\t};\n\t").append("tags{").append(tagsObject).append("};\n\t");
         if(tracksSimpleObject == null){
             return str.toString();
         }
-        str.append(tracksSimpleObject).append("\n}");
+        str.append("tracks{").append(tracksSimpleObject).append("\n\t}").append("\n}");
         return str.toString();
     }
 
-    private String imageToString(ArrayList<Object> image){
+    public String imageToString(){
 
         ArrayList<String> link = new ArrayList<>();
         ArrayList<String> size = new ArrayList<>();
@@ -86,11 +86,10 @@ public class AlbumObject {
             String img = str[1].replace(" size=", "");
             size.add(img.replace("}", ""));
         }
-        StringBuilder str = new StringBuilder("images{");
+        StringBuilder str = new StringBuilder();
         for(int i = 0; i < link.size(); i++){
             str.append("\n\t\tlink=\"").append(link.get(i)).append("\", size=").append(size.get(i)).append(";");
         }
-        str.append("\n\t}");
         return str.toString();
 
     }

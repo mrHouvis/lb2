@@ -53,6 +53,14 @@ public class Controller {
 
         LastFmService album = genson.deserialize(response.getBody(), LastFmService.class);
         System.out.println(album.getAlbumToString());
+
+        DOCBuilder doc = new DOCBuilder();
+        try {
+            doc.writeToFile(album.getAlbum());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         return album.getAlbumToString();
 
     }
@@ -122,16 +130,16 @@ public class Controller {
         ArrayList<String> artistList = list.getArtistUsingTrack();
         StringBuilder strbuild = new StringBuilder();
 
+        DOCBuilder doc = new DOCBuilder();
+        doc.ClearFile();
+
         for(String artist : artistList){
-            if(artist.contains("&") || artist.contains("#")){
+            String album = getAlbumUsingTrackAndArtist(artist,track);
+            if(artist.contains("&") || artist.contains("#") || album.equals("not an album")){
                 continue;
             }
 
-            if(getAlbumUsingTrackAndArtist(artist,track).equals("not an album")){
-                continue;
-            }
-
-            strbuild.append(getAlbumUsingTrackAndArtist(artist, track));
+            strbuild.append(album);
         }
 
         return strbuild.toString();
@@ -167,6 +175,9 @@ public class Controller {
 
         String[] str = lastFmService.getAlbumsNameUsingArtistToString().split(", ");
         StringBuilder strbuild = new StringBuilder();
+
+        DOCBuilder doc = new DOCBuilder();
+        doc.ClearFile();
 
         for(String temp : str){
             if(temp.contains("&") || temp.contains("#")){
