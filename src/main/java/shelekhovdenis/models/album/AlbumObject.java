@@ -2,6 +2,9 @@ package shelekhovdenis.models.album;
 
 import java.util.ArrayList;
 
+/**
+ * class containing information about the album
+ */
 public class AlbumObject {
 
     private String name;
@@ -64,6 +67,10 @@ public class AlbumObject {
         this.tagsObject = tagsObject;
     }
 
+    /**
+     * returns the album
+     * @return album as string
+     */
     @Override
     public String toString() {
         StringBuilder str = new StringBuilder("Album{" + "\n\tname=\"" + name + "\"" + ";\n\tartist=\"" + artist + "\";\n\t");
@@ -75,6 +82,10 @@ public class AlbumObject {
         return str.toString();
     }
 
+    /**
+     * parses a image object into a view: link="", size=
+     * @return list of images as string
+     */
     public String imageToString(){
 
         ArrayList<String> link = new ArrayList<>();

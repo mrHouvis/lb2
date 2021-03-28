@@ -2,12 +2,19 @@ package shelekhovdenis.models.album;
 
 import java.util.ArrayList;
 
+/**
+ * contains a list of tracks (title, duration)
+ */
 public class TracksSimpleObject {
 
     ArrayList<Object> track = new ArrayList <> ();
     private ArrayList<String> name;
     private ArrayList<String> duration;
 
+    /**
+     * returns a list of tracks
+     * @return list of tracks as string
+     */
     @Override
     public String toString() {
 
@@ -30,7 +37,11 @@ public class TracksSimpleObject {
         return str.toString();
     }
 
-    public ArrayList<String> getTracksToTile(){
+    /**
+     * returns a list of tracks
+     * @return list of tracks as ArrayList
+     */
+    public ArrayList<String> getTracksToFile(){
         ArrayList<String> tracks = new ArrayList<>();
         for (int i = 0; i < name.size(); i++){
             tracks.add("name: \"" + name.get(i) + "\", duration=" + duration.get(i) + ";");

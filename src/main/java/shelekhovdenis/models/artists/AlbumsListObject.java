@@ -2,6 +2,9 @@ package shelekhovdenis.models.artists;
 
 import java.util.ArrayList;
 
+/**
+ * contains a list of album titles
+ */
 public class AlbumsListObject {
 
     ArrayList<AlbumForArtistObject> album;
@@ -21,6 +24,10 @@ public class AlbumsListObject {
         this.album = album;
     }
 
+    /**
+     * lists album names
+     * @return lists album names as string
+     */
     @Override
     public String toString() {
         StringBuilder str = new StringBuilder();

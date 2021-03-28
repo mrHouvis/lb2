@@ -3,6 +3,9 @@ package shelekhovdenis.models.trackandartist;
 
 import shelekhovdenis.models.album.AlbumObject;
 
+/**
+ * class that, after parsing, displays the name of the album
+ */
 public class AlbumNameObject {
 
     private AlbumObject album;
@@ -22,6 +25,10 @@ public class AlbumNameObject {
         this.album = album;
     }
 
+    /**
+     * returns album title
+     * @return album title as string
+     */
     @Override
     public String toString() {
         if(album == null){

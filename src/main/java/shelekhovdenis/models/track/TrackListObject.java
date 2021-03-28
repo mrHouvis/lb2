@@ -2,6 +2,9 @@ package shelekhovdenis.models.track;
 
 import java.util.ArrayList;
 
+/**
+ * contains a list of artists
+ */
 public class TrackListObject {
 
     private ArrayList<TrackObject> trackList;
@@ -20,6 +23,10 @@ public class TrackListObject {
         this.trackList = trackmatches;
     }
 
+    /**
+     * composes and returns a list of artists
+     * @return list of artists as string
+     */
     public ArrayList<String> getArtistList(){
         ArrayList<String> artistList = new ArrayList<>();
         for(TrackObject track : trackList){

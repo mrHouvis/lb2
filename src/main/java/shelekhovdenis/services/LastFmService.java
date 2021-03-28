@@ -7,6 +7,9 @@ import shelekhovdenis.models.trackandartist.AlbumNameObject;
 
 import java.util.ArrayList;
 
+/**
+ * a class that parses a request for objects
+ */
 public class LastFmService {
 
     AlbumNameObject albumNameObject;
@@ -14,21 +17,40 @@ public class LastFmService {
     AlbumsListObject topAlbums;
     TrackmatchesObject results;
 
+    /**
+     * parameterless constructor
+     */
     public LastFmService() {
     }
 
+    /**
+     * object constructor "AlbumNameObject"
+     * @param albumNameObject object to pars the responsive "track.getInfo"
+     */
     public LastFmService(AlbumNameObject albumNameObject) {
         this.albumNameObject = albumNameObject;
     }
 
+    /**
+     * object constructor "AlbumObject"
+     * @param albumObject object to pars the responsive "album.getinfo"
+     */
     public LastFmService(AlbumObject albumObject) {
         this.albumObject = albumObject;
     }
 
+    /**
+     * object constructor object to pars the responsive "AlbumsListObject"
+     * @param topAlbums
+     */
     public LastFmService(AlbumsListObject topAlbums) {
         this.topAlbums = topAlbums;
     }
 
+    /**
+     * object constructor "TrackmatchesObject"
+     * @param results object to pars the responsive "track.search"
+     */
     public LastFmService(TrackmatchesObject results) {
         this.results = results;
     }
@@ -65,8 +87,16 @@ public class LastFmService {
         this.results = results;
     }
 
+    /**
+     * returns the album
+     * @return album as string
+     */
     public String getAlbumToString(){return albumObject.toString();}
 
+    /**
+     * returns album title
+     * @return album title as string
+     */
     public String getAlbumNameUsingTrackAndArtistToString(){
         if(albumNameObject == null || albumNameObject.toString() == null){
             return null;
@@ -74,8 +104,16 @@ public class LastFmService {
         return albumNameObject.toString();
     }
 
+    /**
+     * returns a list of album names
+     * @return list of album names as string
+     */
     public String getAlbumsNameUsingArtistToString(){return topAlbums.toString();}
 
+    /**
+     * returns a list of artists
+     * @return list of artists as string
+     */
     public ArrayList<String> getArtistUsingTrack(){
         return results.getArtistList();
     }
