@@ -1,5 +1,8 @@
 package shelekhovdenis.models.artists;
 
+/**
+ * contains the title of the album
+ */
 public class AlbumForArtistObject {
 
     String name;
@@ -18,6 +21,10 @@ public class AlbumForArtistObject {
         this.name = name;
     }
 
+    /**
+     * returns the name of the album
+     * @return name of the album as string
+     */
     @Override
     public String toString() {
         return name;

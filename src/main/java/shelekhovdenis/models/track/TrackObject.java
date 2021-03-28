@@ -1,5 +1,8 @@
 package shelekhovdenis.models.track;
 
+/**
+ * contains the artist's name
+ */
 public class TrackObject {
 
     private String artist;
@@ -18,6 +21,10 @@ public class TrackObject {
         this.artist = artist;
     }
 
+    /**
+     * returns the artist name
+     * @return artist name as string
+     */
     @Override
     public String toString() {
         return artist;
